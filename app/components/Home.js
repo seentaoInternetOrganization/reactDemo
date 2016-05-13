@@ -7,7 +7,7 @@ import React from 'react';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = HomeStore.getState();
+    // this.state = HomeStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
@@ -26,8 +26,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className='container'>
-        Demo from Home HAHAHAHAH
+      <div>
+        Demo from Home HAHAH
       </div>
     );
   }

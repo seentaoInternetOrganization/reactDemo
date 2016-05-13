@@ -8,7 +8,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js watchify -o js/bundle.js -v -d js/app.js",
     "watch": "nodemon server.js",
     "postinstall": "bower install && gulp build"
   },
