@@ -5,7 +5,6 @@ class App extends React.Component {
     return (
       <div>
       	{this.props.children}
-        这是一个基于ReactJS Flux的demo
       </div>
     );
   }
