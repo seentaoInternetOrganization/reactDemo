@@ -1,8 +1,8 @@
 import React from 'react';
-// import {Link} from 'react-router';
-// import HomeStore from '../stores/HomeStore'
-// import HomeActions from '../actions/HomeActions';
-// import {first, without, findWhere} from 'underscore';
+import {Link} from 'react-router';
+import HomeStore from '../stores/HomeStore'
+import HomeActions from '../actions/HomeActions';
+import {first, without, findWhere} from 'underscore';
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,12 +12,12 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    // HomeStore.listen(this.onChange);
-    // HomeActions.getTwoCharacters();
+    HomeStore.listen(this.onChange);
+    HomeActions.getTwoCharacters();
   }
 
   componentWillUnmount() {
-    // HomeStore.unlisten(this.onChange);
+    HomeStore.unlisten(this.onChange);
   }
 
   onChange(state) {
@@ -26,8 +26,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className='container'>
-        Demo from Home HAHAHAHAH
+      <div>
+        Demo from Home Component
       </div>
     );
   }
