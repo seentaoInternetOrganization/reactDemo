@@ -4,10 +4,12 @@ import OemActions from '../actions/OemActions';
 class OemStore {
   constructor() {
     this.bindActions(OemActions);
+    this.oems = [];
   }
 
   onGetOEMFactoriesSuccess(data) {
-    this.result = data;
+    console.log(data);
+    this.oems = data;
   }
 
   onGetOEMFactoriesFail(errorMessage) {

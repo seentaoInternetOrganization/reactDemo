@@ -93,18 +93,28 @@ app.get('/api/getBankLoans', function(req, res, next){
 
     });
 });
+<<<<<<< HEAD
 
 // 资质开发
 app.get('/api/getCertificates', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getCertificates1';
 
+=======
+app.get('/api/getOEMFactories', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getOEMFactories';
+    console.log("发送请求服务器");
+>>>>>>> 682e0fee0860ae6fc6a7e5340179edbbf5fe94d2
     request.get(apiUrl, function(err, request, body){
         if (err) {
             return next(err); 
         }
 
         var result = JSON.parse(body);
+<<<<<<< HEAD
         res.send(result.certificates);
+=======
+        res.send(result.oemFactories);
+>>>>>>> 682e0fee0860ae6fc6a7e5340179edbbf5fe94d2
         return;
 
     });

@@ -45,6 +45,8 @@ class Home extends React.Component {
       <div className="index_01">
           <img onClick={this.handleClick.bind(this)} src={'../images/OEML_xiadan_n.png'}/>
           {loanNodes}
+          <Link to='/oem' >进入代工厂</Link>
+
       </div>
     );
   }
