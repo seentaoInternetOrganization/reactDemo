@@ -3,19 +3,20 @@ import alt from '../alt';
 class OemActions {
   constructor() {
     this.generateActions(
-      'getOEMFactoriesSuccess'
-      'getOEMFactoriesFail'
-
+      'getOEMFactoriesSuccess',
+      'getOEMFactoriesFailed'
     );
   }
 
   getOEMFactories() {
+    console.log("发送请求");
+
     $.ajax({ url: '/api/getOEMFactories' })
       .done(data => {
         this.actions.getOEMFactoriesSuccess(data);
       })
       .fail(jqXhr => {
-        this.actions.getOEMFactoriesFail(jqXhr.responseJSON.message);
+        this.actions.getOEMFactoriesFailed(jqXhr.responseJSON.message);
       });
   }
 }

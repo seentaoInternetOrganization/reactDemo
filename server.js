@@ -93,6 +93,20 @@ app.get('/api/getBankLoans', function(req, res, next){
 
     });
 });
+app.get('/api/getOEMFactories', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getOEMFactories';
+    console.log("发送请求服务器");
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.oemFactories);
+        return;
+
+    });
+});
 /**
  * PUT /api/characters
  * Update winning and losing count for both characters.
