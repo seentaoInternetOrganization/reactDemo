@@ -3,7 +3,6 @@ import React from 'react';
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
-    this.state = HomeStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 

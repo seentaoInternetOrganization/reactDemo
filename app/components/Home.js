@@ -27,7 +27,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        Demo from Home Component
+        <Link to='/oem' > 刘阳的代工厂</Link>
       </div>
     );
   }
