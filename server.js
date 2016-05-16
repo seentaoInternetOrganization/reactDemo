@@ -93,6 +93,22 @@ app.get('/api/getBankLoans', function(req, res, next){
 
     });
 });
+
+// 资质开发
+app.get('/api/getCertificates', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getCertificates1';
+
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.certificates);
+        return;
+
+    });
+});
 /**
  * PUT /api/characters
  * Update winning and losing count for both characters.
