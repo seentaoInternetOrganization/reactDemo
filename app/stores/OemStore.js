@@ -1,22 +1,18 @@
 import alt from '../alt';
-import HomeActions from '../actions/HomeActions';
+import OemActions from '../actions/OemActions';
 
-class HomeStore {
+class OemStore {
   constructor() {
-    this.bindActions(HomeActions);
+    this.bindActions(OemActions);
   }
 
-  onGetTwoCharactersSuccess(data) {
-    this.characters = data;
+  onGetOEMFactoriesSuccess(data) {
+    this.result = data;
   }
 
-  onGetTwoCharactersFail(errorMessage) {
-    toastr.error(errorMessage);
-  }
-
-  onVoteFail(errorMessage) {
+  onGetOEMFactoriesFail(errorMessage) {
     toastr.error(errorMessage);
   }
 }
 
-export default alt.createStore(HomeStore);
+export default alt.createStore(OemStore);
