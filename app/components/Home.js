@@ -9,6 +9,8 @@ class Home extends React.Component {
     super(props);
     this.state = HomeStore.getState();
     this.onChange = this.onChange.bind(this);
+    
+//    test
   }
 
   componentDidMount() {
