@@ -46,7 +46,7 @@ class Home extends React.Component {
           <img onClick={this.handleClick.bind(this)} src={'../images/OEML_xiadan_n.png'}/>
           {loanNodes}
           <Link to='/oem' >进入代工厂</Link>
-
+          <Link to='/dq' ><br/><img src={'../images/ol_zizhikaifa_n.png'}/></Link>
       </div>
     );
   }
