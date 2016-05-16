@@ -4,17 +4,15 @@ import HomeActions from '../actions/HomeActions';
 class HomeStore {
   constructor() {
     this.bindActions(HomeActions);
+    this.loans = [];
   }
 
-  onGetTwoCharactersSuccess(data) {
-    this.characters = data;
+  onGetLoansOfAllBankSuccess(data) {
+    console.log(data);
+    this.loans = data;
   }
 
-  onGetTwoCharactersFail(errorMessage) {
-    toastr.error(errorMessage);
-  }
-
-  onVoteFail(errorMessage) {
+  onGetLoansOfAllBankFailed(errorMessage) {
     toastr.error(errorMessage);
   }
 }

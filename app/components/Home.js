@@ -13,7 +13,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     HomeStore.listen(this.onChange);
-    HomeActions.getTwoCharacters();
   }
 
   componentWillUnmount() {
@@ -24,10 +23,26 @@ class Home extends React.Component {
     this.setState(state);
   }
 
+   handleClick() {
+      HomeActions.getLoansOfAllBank();
+      console.log("Click Here");
+
+  }
+
   render() {
+    var loanNodes = this.state.loans.map((loanItem, index) => {
+        return <div key = {loanItem.loanId} className = 'index_03_00'>
+                  <div>{loanItem.loanName}</div>
+                  <div>{loanItem.loanAmount}</div>
+                  <div>{loanItem.loanTimeUnit}</div>
+                  <div>{loanItem.loanSysId}</div>
+                </div>
+    });
+
     return (
-      <div>
-        <Link to='/oem' > 刘阳的代工厂</Link>
+      <div className="index_01">
+          <img onClick={this.handleClick.bind(this)} src={'../images/OEML_xiadan_n.png'}/>
+          {loanNodes}
       </div>
     );
   }
