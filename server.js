@@ -77,7 +77,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 //         });
 //     });
 // });
+app.get('/api/getBankLoans', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getBankLoans';
 
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.loans);
+        return;
+
+    });
+});
 /**
  * PUT /api/characters
  * Update winning and losing count for both characters.
@@ -248,26 +261,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //   async.waterfall([
 //     function(callback) {
-//       request.get(characterIdLookupUrl, function(err, request, xml) {
-//         if (err) return next(err);
-//         parser.parseString(xml, function(err, parsedXml) {
-//           if (err) return next(err);
-//           try {
-//             var characterId = parsedXml.eveapi.result[0].rowset[0].row[0].$.characterID;
+      // request.get(characterIdLookupUrl, function(err, request, xml) {
+      //   if (err) return next(err);
+      //   parser.parseString(xml, function(err, parsedXml) {
+      //     if (err) return next(err);
+      //     try {
+      //       var characterId = parsedXml.eveapi.result[0].rowset[0].row[0].$.characterID;
 
-//             Character.findOne({ characterId: characterId }, function(err, character) {
-//               if (err) return next(err);
+      //       Character.findOne({ characterId: characterId }, function(err, character) {
+      //         if (err) return next(err);
 
-//               if (character) {
-//                 return res.status(409).send({ message: character.name + ' is already in the database.' });
-//               }
+      //         if (character) {
+      //           return res.status(409).send({ message: character.name + ' is already in the database.' });
+      //         }
 
-//               callback(err, characterId);
-//             });
-//           } catch (e) {
-//             return res.status(400).send({ message: 'XML Parse Error' });
-//           }
-//         });
+      //         callback(err, characterId);
+      //       });
+      //     } catch (e) {
+      //       return res.status(400).send({ message: 'XML Parse Error' });
+      //     }
+      //   });
 //       });
 //     },
 //     function(characterId) {
