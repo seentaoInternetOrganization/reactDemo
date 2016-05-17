@@ -79,7 +79,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //         });
 //     });
 // });
-app.get('/api/getBankLoans', function(req, res, next){
+app.get('/getBankLoans', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getBankLoans';
 
     request.get(apiUrl, function(err, request, body){
