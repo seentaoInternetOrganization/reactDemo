@@ -79,7 +79,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //         });
 //     });
 // });
-app.get('/api/getBankLoans', function(req, res, next){
+app.get('/getBankLoans', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getBankLoans';
 
     request.get(apiUrl, function(err, request, body){
@@ -129,8 +129,8 @@ app.post('/api/submitOEMOrder', function(req, res, next){
 });
 // 资质开发
 app.get('/api/getCertificates', function(req, res, next){
-    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getCertificates1';
-
+    // var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getCertificates1';
+    var apiUrl = 'http://10.10.16.163/tp_test/1.php';
     request.get(apiUrl, function(err, request, body){
         if (err) {
             return next(err); 

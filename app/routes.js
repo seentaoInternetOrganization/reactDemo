@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Oem from './components/Oem';
 import DQ from './components/DQ';
 import Mro from './components/Mro';
+import Bank from './components/Bank';
 
 
 export default (
@@ -14,5 +15,6 @@ export default (
       <Route path='/dq' component={DQ} />
       <Route path='/mro' component={Mro} />
 
+      <Route path='/bank' component={Bank} />
   </Route>
 );
