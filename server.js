@@ -123,6 +123,25 @@ app.get('/api/getCertificates', function(req, res, next){
 
     });
 });
+
+//
+// 原料市场
+app.get('/api/getMarketROrder', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getMarketROrder';
+
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err);
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.rSysOrders);
+        return;
+
+    });
+});
+
+
 /**
  * PUT /api/characters
  * Update winning and losing count for both characters.
