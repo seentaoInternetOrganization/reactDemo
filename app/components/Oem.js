@@ -1,6 +1,7 @@
 import React from 'react';
 import OemStore from '../stores/OemStore'
 import OemActions from '../actions/OemActions';
+import SubmitDialog from './SubmitDialog';
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
@@ -22,32 +23,51 @@ class Oem extends React.Component {
     this.setState(state);
   }
 
+  handleClick() {
+    // 显示弹窗
+    // this.setState({submitDisplay : "block"});
+    // OemStore.submitDisplay = "block";
+    OemActions.setSubmitDisplay("block")
+    console.log("Click Here");
+  }
   render() {
-    var sdlfj = this.state.oems;
-    var oemFactories = this.state.oems.map((oem) => {
+    var itemSize = 272;
+    var size = this.state.oems.length;
+    var oemFactories = this.state.oems.map((oem, index) => {
+      var products = oem.oemOutputs.split(",");
+      var details = products.map((product) => {
+          var detail = product.split("_");
+          return  <div key={detail[0]}>
+                  <li>{detail[0]}</li>
+                  <li>可产数量：{detail[2]}</li>
+                  <li>单价：{detail[3]}</li>
+                  <li>交货时间：{detail[4]}</li>
+                  </div>
+      });
         return    <div key={oem.oemFactoryId} className="index_03_00" id="gyzx">
-                  <div>{oem.oemFactoryId}</div>
-                  <div>{oem.oemFactoryName}</div>
-                  <div>{oem.oemBreachFee}</div>
-                  <div>{oem.oemOutputs}</div>
-                  <div>{sdlfj[1].oemOutputs}</div>
-
-
+                  <h1>{oem.oemFactoryName}</h1>
+                  {details}
+                  <button className="index_03_02" id = {index} onClick={this.handleClick.bind(this)}></button>
                 </div>
     });
 
     return (
-
+<div>
       <div className="index_00">
         <div className="index_01">
             <div className="index_01_00">
                 <div className="index_01_01" id="gy"><i></i></div>
                 <div className="index_01_02" id="sy"><i></i></div>
             </div>
-            {oemFactories}
+            <div className="index_03" id="gyzx">
+                <div className="index_04" style={{width: size*itemSize}}>
+                {oemFactories}
+                </div>
+            </div>
         </div>
       </div>
-
+      <SubmitDialog />
+</div>
     );
   }
 }
