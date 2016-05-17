@@ -26,20 +26,43 @@ class DQ extends React.Component {
     this.setState(state);
   }
 
+  handleClick() {
+      console.log("Click Here");
+  }
+
   render() {
-    
+
     var dqNodes = this.state.certificates.map((dqItem, index) => {
         return <div key = {dqItem.cId} className = "index_03_00">
-                  <div>{dqItem.cSysId}</div>
-                  <div>{dqItem.cName}</div>
-                  <div>{dqItem.cPerTime}</div>
-                  <div>{dqItem.cPerTimeUnit}</div>
+                  <h1>{dqItem.cName.substring(0,4)}</h1>
+                  <h1>{dqItem.cName.substring(4,dqItem.cName.length)}</h1>
+                    <ul>
+                      <li>
+                        <span>开发周期 :</span><i>{dqItem.cPerTime+dqItem.cPerTimeUnit}</i>
+                      </li>
+                      <li>
+                        <span>单期费用 :</span><i>{dqItem.cPerFee+"万"}</i>
+                      </li>
+                      <li>
+                        <span>当前开发 :</span><i>{"第"+dqItem.cAlreadyCycle+"期"}</i>
+                      </li>
+                    </ul>
+                  <button className="index_03_06"></button>
                 </div>
     });
-
     return(
-      <div className="index_01">
-        {dqNodes}
+      <div className="index_00">
+        <div className="index_01">
+          <div className="index_01_00">
+                <div className="index_01_01" id="gy"><i></i></div>
+                <div className="index_01_02" id="sy"><i></i></div>
+            </div>
+          <div className="index_03">
+            <div className="index_04">
+              {dqNodes}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
