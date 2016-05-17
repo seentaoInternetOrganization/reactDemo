@@ -5,6 +5,7 @@ class OemStore {
   constructor() {
     this.bindActions(OemActions);
     this.oems = [];
+    this.submitDisplay = "none";
   }
 
   onGetOEMFactoriesSuccess(data) {
@@ -14,6 +15,10 @@ class OemStore {
 
   onGetOEMFactoriesFail(errorMessage) {
     toastr.error(errorMessage);
+  }
+  onSetSubmitDisplay(display){
+  	this.submitDisplay = display;
+    console.log(display);
   }
 }
 

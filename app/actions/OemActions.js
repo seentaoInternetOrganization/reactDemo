@@ -4,7 +4,8 @@ class OemActions {
   constructor() {
     this.generateActions(
       'getOEMFactoriesSuccess',
-      'getOEMFactoriesFailed'
+      'getOEMFactoriesFailed',
+      'setSubmitDisplay'
     );
   }
 
@@ -18,6 +19,11 @@ class OemActions {
       .fail(jqXhr => {
         this.actions.getOEMFactoriesFailed(jqXhr.responseJSON.message);
       });
+  }
+  //设置弹框显示
+  setSubmitDisplay(){
+    console.log("设置弹框显示");
+    this.actions.setSubmitDisplay(display);
   }
 }
 
