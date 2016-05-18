@@ -70,7 +70,7 @@ class Oem extends React.Component {
         </div>
       </div>
       <SubmitDialog />
-      <TipsDialog />
+      <TipsDialog api = "/api/submitOEMOrder"/>
 
 </div>
     );
