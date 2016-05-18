@@ -75,7 +75,7 @@ class Mro extends React.Component {
                         <span>应付期 :</span><i>{mroItem.payableDays+"天"}</i>
                     </li>
                 </ul>
-                <button className="index_03_06" id = {index} onClick={this.handleClick.bind(this)}></button>
+                <button className="index_03_02" id = {index} onClick={this.handleClick.bind(this)}></button>
             </div>
         });
         return(
