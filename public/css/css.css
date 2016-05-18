@@ -33,8 +33,10 @@ i , em {font-style: normal;}
 .index_03_03:hover , .index_03_04:hover {background-position: 0px 48px;}
 .index_03_04 {background: url(../images/feature_right.gif); float: right; margin:185px 0px 0px 1050px; }
 .index_03_05 {display: none;}
-.index_03_06 {width: 183px; height: 52px; margin: 0px 0px 0px 40px; background: url(../images/dql_dianjitouzi_n.png); border: 0;cursor: pointer;}
-.index_03_06:hover { background: url(../images/dql_dianjitouzi_s.png); }
+.index_03_06_1 {width: 183px; height: 52px; margin: 0px 0px 0px 40px; background: url(../images/dql_dianjitouzi_1.png); border: 0;cursor: pointer;}
+.index_03_06_1:hover { background: url(../images/dql_dianjitouzi_s.png); }
+.index_03_06_2 {width: 183px; height: 52px; margin: 0px 0px 0px 40px; background: url(../images/dql_dianjitouzi_2.png); border: 0;cursor: pointer;}
+.index_03_06_3 {width: 183px; height: 52px; margin: 0px 0px 0px 40px; background: url(../images/dql_dianjitouzi_3.png); border: 0;cursor: pointer;}
 .index_04 {height: 450px;float: left; }
 
 
