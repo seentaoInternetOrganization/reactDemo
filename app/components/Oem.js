@@ -2,6 +2,7 @@ import React from 'react';
 import OemStore from '../stores/OemStore'
 import OemActions from '../actions/OemActions';
 import SubmitDialog from './SubmitDialog';
+import TipsDialog from './TipsDialog';
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
@@ -23,12 +24,14 @@ class Oem extends React.Component {
     this.setState(state);
   }
 
-  handleClick() {
+  handleClick(index) {
     // 显示弹窗
     // this.setState({submitDisplay : "block"});
     // OemStore.submitDisplay = "block";
-    OemActions.setSubmitDisplay("block")
-    console.log("Click Here");
+
+    OemActions.setSubmitIndex(index);
+    OemActions.setSubmitDisplay("block");
+    console.log(index);
   }
   render() {
     var itemSize = 272;
@@ -47,7 +50,7 @@ class Oem extends React.Component {
         return    <div key={oem.oemFactoryId} className="index_03_00" id="gyzx">
                   <h1>{oem.oemFactoryName}</h1>
                   {details}
-                  <button className="index_03_02" id = {index} onClick={this.handleClick.bind(this)}></button>
+                  <button className="index_03_02" id = {index} onClick={this.handleClick.bind(this, index)}></button>
                 </div>
     });
 
@@ -67,6 +70,8 @@ class Oem extends React.Component {
         </div>
       </div>
       <SubmitDialog />
+      <TipsDialog api = "/api/submitOEMOrder"/>
+
 </div>
     );
   }

@@ -93,9 +93,10 @@ app.get('/getBankLoans', function(req, res, next){
 
     });
 });
+//获取代工厂
 app.get('/api/getOEMFactories', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getOEMFactories';
-    console.log("发送请求服务器");
+    console.log("请求");
     request.get(apiUrl, function(err, request, body){
         if (err) {
             return next(err); 
@@ -107,7 +108,25 @@ app.get('/api/getOEMFactories', function(req, res, next){
 
     });
 });
+//提交代工厂订单
+app.post('/api/submitOEMOrder', function(req, res, next){
+    var oemFactoryId = req.body.oemFactoryId;
+    var pSysId = req.body.pSysId;
+    var pOrderCount = req.body.pOrderCount;
 
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/submitOEMOrder?oemFactoryId='+oemFactoryId+'pSysId='+pSysId+'pOrderCount='+pOrderCount;
+    console.log("请求");
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result);
+        return;
+
+    });
+});
 // 资质开发
 app.get('/api/getCertificates', function(req, res, next){
     // var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getCertificates1';
@@ -124,7 +143,6 @@ app.get('/api/getCertificates', function(req, res, next){
     });
 });
 
-//
 // 原料市场
 app.get('/api/getMarketROrder', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getMarketROrder';
