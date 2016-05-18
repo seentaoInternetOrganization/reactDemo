@@ -24,12 +24,12 @@ class TipsDialog extends React.Component {
   }
   
   //显示确认弹框
-  submit(){
+  submit(api){
       PublicActions.setEnsureDisplay("none");
       //提交操作
       
-    console.log(this.state.req);
-      PublicActions.submit('/api/submitOEMOrder', this.state.req);
+    console.log(api);
+      PublicActions.submit(api, this.state.req);
   }
   render() {
     
@@ -40,7 +40,7 @@ class TipsDialog extends React.Component {
             <a id="gb" onClick={this.handleClick.bind(this)}></a>
         </div>
         <span>{this.state.tips}</span>
-        <button onClick={this.submit.bind(this)}></button>
+        <button onClick={this.submit.bind(this, this.props.api)}></button>
     </div>
     );
   }
