@@ -52,7 +52,9 @@ class SubmitDialog extends React.Component {
   submit(){
       PublicActions.setEnsureDisplay("block");
       OemActions.setSubmitDisplay("none");
-      PublicActions.setTips("什么通知");
+      //计算
+      var amount = this.state.pOrderCount*this.state.productPrice;
+      PublicActions.setTips("此订单需要花费"+amount+"万，是否确定下单？");
       PublicActions.setReq({oemFactoryId: this.state.oemFactoryId, pSysId: this.state.pSysId, pOrderCount: this.state.pOrderCount});
 
 

@@ -27,8 +27,7 @@ class TipsDialog extends React.Component {
   submit(api){
       PublicActions.setEnsureDisplay("none");
       //提交操作
-      
-    console.log(api);
+      console.log(api);
       PublicActions.submit(api, this.state.req);
   }
   render() {

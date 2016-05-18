@@ -13,6 +13,7 @@ class OemStore {
   this.pSysId = "";
 	this.pOrderCount = 1;
 	this.productCount = 0;
+  this.productPrice = 0;
   }
   onGetOEMFactoriesSuccess(data) {
     console.log(data);
@@ -37,12 +38,14 @@ class OemStore {
     this.pSysId = this.oems[this.submitIndex].oemOutputs.split(",")[0].split("_")[1];
 	this.pOrderCount = 1;
 	this.productCount = this.oems[this.submitIndex].oemOutputs.split(",")[0].split("_")[2];
+  this.productPrice = this.oems[this.submitIndex].oemOutputs.split(",")[0].split("_")[3];
     console.log(index);
   }
   onSetSubmitProduct(product){
   	this.productIndex = product;
     this.pSysId = this.oems[this.submitIndex].oemOutputs.split(",")[product].split("_")[1];
   	this.productCount = this.oems[this.submitIndex].oemOutputs.split(",")[product].split("_")[2];
+    this.productPrice = this.oems[this.submitIndex].oemOutputs.split(",")[product].split("_")[3];
   	this.pOrderCount = 1;
     console.log(product);
   }
