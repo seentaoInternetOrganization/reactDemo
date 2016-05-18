@@ -56,8 +56,7 @@ class Mro extends React.Component {
         var size = this.state.rSysOrders.length;
         var mroNodes = this.state.rSysOrders.map((mroItem, index) => {
             return <div key = {mroItem.rSysId} className = "index_03_00" id="mro">
-                <h1>{mroItem.rName.substring(0,4)}</h1>
-                <h1>{mroItem.rName.substring(4,mroItem.rName.length)}</h1>
+                <h1>{mroItem.rName}</h1>
                 <ul>
                     <li>
                         <span>单价 :</span><i>{mroItem.rPerFee+"万"}</i>
