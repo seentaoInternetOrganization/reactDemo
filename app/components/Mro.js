@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router';
 import MroActions from '../actions/MroActions'
 import MroStore from '../stores/MroStore'
-import {first, without, findWhere} from 'underscore';
+import MroDialog from './MroDialog';
 
 class Mro extends React.Component {
     constructor(props) {
@@ -27,6 +26,8 @@ class Mro extends React.Component {
         this.gys1Click();
     }
     handleClick() {
+        console.log("Click Here");
+        MroActions.setSubmitDisplay("block")
         console.log("Click Here");
     }
 
@@ -91,6 +92,7 @@ class Mro extends React.Component {
                         </div>
                     </div>
                 </div>
+                <MroDialog />
             </div>
         );
     }

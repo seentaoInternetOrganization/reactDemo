@@ -5,6 +5,7 @@ class MroStore {
     constructor() {
         this.bindActions(MroActions);
         this.rSysOrders = [];
+        this.submitDisplay = "none";
     }
 
     onGetRSysOrdersSuccess(data) {
@@ -14,6 +15,10 @@ class MroStore {
 
     onGetRSysOrdersFail(errorMessage) {
         toastr.error(errorMessage);
+    }
+    onSetSubmitDisplay(display){
+        this.submitDisplay = display;
+        console.log(display);
     }
 }
 
