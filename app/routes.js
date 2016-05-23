@@ -6,6 +6,7 @@ import Oem from './components/Oem';
 import DQ from './components/DQ';
 import Mro from './components/Mro';
 import Bank from './components/Bank';
+import Report from './components/Report';
 
 
 export default (
@@ -14,7 +15,9 @@ export default (
       <Route path='/oem' component={Oem} />
       <Route path='/dq' component={DQ} />
       <Route path='/mro' component={Mro} />
-
       <Route path='/bank' component={Bank} />
+
+        <Route path='/report' component={Report} />
+
   </Route>
 );
