@@ -3,6 +3,8 @@ import OemStore from '../stores/OemStore'
 import OemActions from '../actions/OemActions';
 import SubmitDialog from './SubmitDialog';
 import TipsDialog from './TipsDialog';
+import PubSub from 'pubsub-js'
+var token;
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
@@ -14,11 +16,22 @@ class Oem extends React.Component {
     OemStore.listen(this.onChange);
     OemActions.getOEMFactories();
     console.log("生命周期方法");
+
+    // var mySubscriber = function( msg, data ){
+    // console.log( msg, data );
+    // PubSub.unsubscribe( token );
+    // };
+    token = PubSub.subscribe( 'MY TOPIC', this.mySubscriber );
   }
 
   componentWillUnmount() {
     OemStore.unlisten(this.onChange);
   }
+
+mySubscriber(msg, data ){
+  console.log( msg, data );
+  PubSub.unsubscribe( token );
+}
 
   onChange(state) {
     this.setState(state);

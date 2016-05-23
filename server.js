@@ -143,6 +143,20 @@ app.get('/api/getCertificates', function(req, res, next){
     });
 });
 
+app.get('/api/submitCertificate', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/submitCertificate';
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.code);
+        return;
+
+    });
+});
+
 // 原料市场
 app.get('/api/getMarketROrder', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getMarketROrder';
