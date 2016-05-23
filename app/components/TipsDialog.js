@@ -1,6 +1,7 @@
 import React from 'react';
 import PublicStore from '../stores/PublicStore'
 import PublicActions from '../actions/PublicActions';
+import PubSub from 'pubsub-js'
 class TipsDialog extends React.Component {
 	constructor(props) {
     super(props);
@@ -29,6 +30,8 @@ class TipsDialog extends React.Component {
       //提交操作
       console.log(api);
       PublicActions.submit(api, this.state.req);
+
+      PubSub.publish( 'MY TOPIC', 'hello world!' );
   }
   render() {
     return (
