@@ -14,7 +14,6 @@ class DQ extends React.Component {
   componentDidMount() {
     DQActions.getCertificates();
     console.log("请求资质开发接口");
-
     DQStore.listen(this.onChange);
   }
 
