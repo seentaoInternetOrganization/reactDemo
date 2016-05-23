@@ -31,7 +31,6 @@ class TipsDialog extends React.Component {
       PublicActions.submit(api, this.state.req);
   }
   render() {
-    
     return (
     <div className="xdtc_01" style={{display: this.state.ensureDisplay}}>
         <div className="xdtc_01_00">
