@@ -22,10 +22,12 @@ class RadioButton extends React.Component {
   handleClick(index) {
     this.setState({selectedIndex: index});
     //发送反馈
-    PubSub.publish("radio_index", index);
+    PubSub.publish(this.props.msg, index);
   } 
   render() {
+
     var tabs = this.props.tabs.map((tab, index) => {
+      var clickableClass;
           if(index == this.state.selectedIndex)
             return  <li key = {index} onClick={this.handleClick.bind(this, index)} className="common_label_selected" id="sc_bq">{tab.name}</li>
           else
