@@ -5,6 +5,7 @@ class DQStore {
   constructor() {
     this.bindActions(DQActions);
     this.certificates = [];
+    this.code = -1;
   }
 
   onGetCertificatesSuccess(data) {
@@ -13,6 +14,15 @@ class DQStore {
   }
 
   onGetCertificatesFailed(errorMessage) {
+    toastr.error(errorMessage);
+  }
+
+  onSubmitCertificateSuccess(data) {
+    console.log(data);
+    this.code = data;
+  }
+
+  onSubmitCertificateFailed(errorMessage) {
     toastr.error(errorMessage);
   }
 }
