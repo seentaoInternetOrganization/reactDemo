@@ -4,8 +4,10 @@ class MroActions {
     constructor() {
         this.generateActions(
             'getRSysOrdersSuccess',
-            'getRSysOrdersFail'
-        );
+            'getRSysOrdersFail',
+            'setSubmitDisplay'
+
+    );
     }
 
     getRSysOrders() {
@@ -16,6 +18,11 @@ class MroActions {
             .fail(jqXhr => {
                 this.actions.getRSysOrdersFail(jqXhr.responseJSON.message);
             });
+    }
+    //设置弹框显示
+    setSubmitDisplay(){
+        console.log("设置弹框显示");
+        this.actions.setSubmitDisplay(display);
     }
 }
 
