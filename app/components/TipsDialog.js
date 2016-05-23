@@ -34,7 +34,6 @@ class TipsDialog extends React.Component {
       PubSub.publish( 'MY TOPIC', 'hello world!' );
   }
   render() {
-    
     return (
     <div className="xdtc_01" style={{display: this.state.ensureDisplay}}>
         <div className="xdtc_01_00">
