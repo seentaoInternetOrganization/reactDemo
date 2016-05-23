@@ -4,7 +4,9 @@ class DQActions {
   constructor() {
     this.generateActions(
       'getCertificatesSuccess',
-      'getCertificatesFail'
+      'getCertificatesFail',
+      'submitCertificateSuccess',
+      'submitCertificateFail'
     );
   }
 
@@ -15,6 +17,16 @@ class DQActions {
       })
       .fail(jqXhr => {
         this.actions.getCertificatesFail(jqXhr.responseJSON.message);
+      });
+  }
+
+  submitCertificate() {
+    $.ajax({ url: '/api/submitCertificate' })
+      .done(data => {
+        this.actions.submitCertificateSuccess(data);
+      })
+      .fail(jqXhr => {
+        this.actions.submitCertificateFail(jqXhr.responseJSON.message);
       });
   }
 }
