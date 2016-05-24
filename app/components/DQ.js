@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import DQActions from '../actions/DQActions'
 import DQStore from '../stores/DQStore'
+import DQActions from '../actions/DQActions'
 import {first, without, findWhere} from 'underscore';
 
 class DQ extends React.Component {
@@ -14,7 +14,6 @@ class DQ extends React.Component {
   componentDidMount() {
     DQActions.getCertificates();
     console.log("请求资质开发接口");
-
     DQStore.listen(this.onChange);
   }
 
@@ -30,6 +29,10 @@ class DQ extends React.Component {
   handleClick(dqItem) {
     var cId=dqItem.cId;
     var cSysId=dqItem.cSysId;
+    var cDevelopState=dqItem.cDevelopState;
+    if (cDevelopState == 2) {
+      DQActions.submitCertificate();
+    }
     console.log("点击第"+cId+"个");
   }
 
@@ -54,16 +57,12 @@ class DQ extends React.Component {
     $("#cpzz i").hide();
   }
 
-  setButton() {
-
-  }
-
   render() {
     var itemSize = 272;
     var size = this.state.certificates.length;
     var dqNodes = this.state.certificates.map((dqItem, index) => {
         return <div key = {dqItem.cId} className = "index_03_00" id="dq">
-                  <h1>{dqItem.cName.substring(0,4)}</h1>
+                  <h1>{dqItem.cName.substring(0,4)}</ h1>
                   <h1>{dqItem.cName.substring(4,dqItem.cName.length)}</h1>
                     <ul>
                       <li>
@@ -76,7 +75,7 @@ class DQ extends React.Component {
                         <span>当前开发 :</span><i>{"第"+dqItem.cAlreadyCycle+"期"}</i>
                       </li>
                     </ul>
-                  <button className={"index_03_06_"+dqItem.cDevelopState} id = {index} onClick={this.handleClick.bind(this,dqItem)}></button>
+                  <button className={"index_03_06_"+dqItem.cDevelopState} id={index} onClick={this.handleClick.bind(this,dqItem)}></button>
                 </div>
     });
     return(

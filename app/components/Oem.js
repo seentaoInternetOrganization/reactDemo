@@ -3,6 +3,10 @@ import OemStore from '../stores/OemStore'
 import OemActions from '../actions/OemActions';
 import SubmitDialog from './SubmitDialog';
 import TipsDialog from './TipsDialog';
+import RadioButton from './RadioButton';
+import PubSub from 'pubsub-js';
+
+var token1, token2;
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
@@ -14,10 +18,15 @@ class Oem extends React.Component {
     OemStore.listen(this.onChange);
     OemActions.getOEMFactories();
     console.log("生命周期方法");
+    token1 =  PubSub.subscribe( 'one', this.dealIndex );
+    token2 =  PubSub.subscribe( 'two', this.dealIndex );
   }
 
   componentWillUnmount() {
     OemStore.unlisten(this.onChange);
+    PubSub.unsubscribe( token1 );
+    PubSub.unsubscribe( token2 );
+
   }
 
   onChange(state) {
@@ -33,46 +42,23 @@ class Oem extends React.Component {
     OemActions.setSubmitDisplay("block");
     console.log(index);
   }
+  dealIndex(msg, index){
+    //根据返回处理本组件动作
+    console.log(msg,index);
+  }
   render() {
-    var itemSize = 272;
-    var size = this.state.oems.length;
-    var oemFactories = this.state.oems.map((oem, index) => {
-      var products = oem.oemOutputs.split(",");
-      var details = products.map((product) => {
-          var detail = product.split("_");
-          return  <div key={detail[0]}>
-                  <li>{detail[0]}</li>
-                  <li>可产数量：{detail[2]}</li>
-                  <li>单价：{detail[3]}</li>
-                  <li>交货时间：{detail[4]}</li>
-                  </div>
-      });
-        return    <div key={oem.oemFactoryId} className="index_03_00" id="gyzx">
-                  <h1>{oem.oemFactoryName}</h1>
-                  {details}
-                  <button className="index_03_02" id = {index} onClick={this.handleClick.bind(this, index)}></button>
-                </div>
-    });
+    
+    var tabs = [{clickable:true, name:"标签1"},{clickable:false, name:"标签2"}];
+    var tabs1 = [{clickable:true, name:"标签3"},{clickable:false, name:"标签4"}];
 
+    
     return (
-<div>
-      <div className="index_00">
-        <div className="index_01">
-            <div className="index_01_00">
-                <div className="index_01_01" id="gy"><i></i></div>
-                <div className="index_01_02" id="sy"><i></i></div>
-            </div>
-            <div className="index_03" id="gyzx">
-                <div className="index_04" style={{width: size*itemSize}}>
-                {oemFactories}
-                </div>
-            </div>
-        </div>
-      </div>
-      <SubmitDialog />
-      <TipsDialog api = "/api/submitOEMOrder"/>
+            
+                  <div className="row authentication">
+                    <RadioButton tabs = {tabs} msg="one"/>
+                    <RadioButton tabs = {tabs1} msg="two"/>
 
-</div>
+                  </div>
     );
   }
 }

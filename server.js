@@ -103,6 +103,35 @@ app.get('/api/getCertificates', function(req, res, next){
 
     });
 });
+// 选单结果
+//参数：apiName
+app.get('/api/getOrderResult', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getOrderResult';
+    request.get(apiUrl, function(err, response, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        //返回参数：
+        res.send(result.orderResults);
+        return;
+
+    });
+});
+app.get('/api/submitCertificate', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/submitCertificate';
+    request.get(apiUrl, function(err, request, body){
+        if (err) {
+            return next(err); 
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.code);
+        return;
+
+    });
+});
 
 // 原料市场
 app.get('/api/getMarketROrder', function(req, res, next){
