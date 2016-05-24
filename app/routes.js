@@ -8,6 +8,7 @@ import Mro from './components/Mro';
 import Bank from './components/Bank';
 import OrderResult from './components/OrderResult';
 import Report from './components/Report';
+import SelectMode from './components/SelectMode';
 
 
 export default (
@@ -18,6 +19,6 @@ export default (
       <Route path='/mro' component={Mro} />
       <Route path='/bank' component={Bank} />
       <Route path='/orderResult' component={OrderResult} />
-      <Route path='/report' component={Report} />
+      <Route path='/SelectMode' component={SelectMode} />
   </Route>
 );
