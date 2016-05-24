@@ -19,6 +19,5 @@ export default (
       <Route path='/bank' component={Bank} />
       <Route path='/orderResult' component={OrderResult} />
       <Route path='/report' component={Report} />
-
   </Route>
 );
