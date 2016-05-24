@@ -37,22 +37,22 @@ class DQ extends React.Component {
     console.log("点击第"+cId+"个");
   }
 
-  sczrClick() {
-    console.log("市场准入");
+  sczrClick(index) {
+    console.log("市场准入"+index);
     $("#sczr i").hide();
     $("#iso i").show();
     $("#cpzz i").show();
   }
 
-  isoClick() {
-    console.log("ISO认证");
+  isoClick(index) {
+    console.log("ISO认证"+index);
     $("#sczr i").show();
     $("#iso i").hide();
     $("#cpzz i").show();
   }
 
-  cpzzClick() {
-    console.log("产品资质");
+  cpzzClick(index) {
+    console.log("产品资质"+index);
     $("#sczr i").show();
     $("#iso i").show();
     $("#cpzz i").hide();
@@ -83,9 +83,9 @@ class DQ extends React.Component {
       <div className="index_00">
         <div className="index_01">
           <div className="index_01_00">
-            <div className="index_01_03" id="sczr" onClick={this.sczrClick.bind(this)}><i></i></div>
-            <div className="index_01_04" id="iso" onClick={this.isoClick.bind(this)}><i></i></div>
-            <div className="index_01_05" id="cpzz" onClick={this.cpzzClick.bind(this)}><i></i></div>
+            <div className="index_01_03" id="sczr" onClick={this.sczrClick.bind(this,1)}><i></i></div>
+            <div className="index_01_04" id="iso" onClick={this.isoClick.bind(this,2)}><i></i></div>
+            <div className="index_01_05" id="cpzz" onClick={this.cpzzClick.bind(this,3)}><i></i></div>
           </div>
           <div className="index_03" id="dq">
             <div className="index_04" style={{width: size*itemSize}}>
