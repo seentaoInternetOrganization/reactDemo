@@ -8,7 +8,8 @@ class ReportActions {
         );
     }
 
-  getReport(api, req) {
+  getReport(api) {
+    console.log(api);
     $.ajax({
       url: api
     })
