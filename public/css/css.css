@@ -59,3 +59,12 @@ i , em {font-style: normal;}
 .common_orl_table div {width: 100%; height: 46px; background: url(../images/xdjg_01.png)no-repeat 0px top;font-size: 20px; float: left;padding-top: 20px; margin-top: 20px;}
 .common_orl_table div span {float: left;}
 .common_orl_table div i {float: right;}
+.ol_container {background: url(../images/zjlbgs_00.png);}
+.ol_label {width: 100%; height:114px; margin:522px auto 0px;padding-left: }
+.ol_label a {width: 114px; height: 114px; float: right; margin: 0px 12px 0px; display: block;cursor: pointer;}
+.ol_label_intelligence {background: url(../images/zjlbgs_05.png);}
+.ol_label_help {background: url(../images/zjlbgs_04.png);}
+.ol_label_meeting {background: url(../images/zjlbgs_02.png);}
+.ol_label_development {background: url(../images/zjlbgs_01.png);}
+.ol_label_details{background: url(../images/zjlbgs_06.png);}
+.pdl_content { }
