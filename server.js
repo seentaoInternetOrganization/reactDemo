@@ -168,7 +168,6 @@ app.get('/api/getReport', function(req, res, next){
 
 
 
-const apiUrl = 'http://125.35.5.37:8081/seentao/';
 const apiUrl = 'http://125.35.5.37:8081/seentao/spring/';
 require('request').debug = true;
 // 代理 /api/:action 类POST请求, action 为api动作名称
