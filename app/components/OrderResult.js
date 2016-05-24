@@ -47,7 +47,7 @@ class OrderResult extends React.Component {
         //             </div>
         // });
         return  <div className="column common_label_content_00 common_orl_table" key={index}>
-                    <h2>订单号:SP100101</h2>
+                    <h2>{"订单号:"+item.pOrderId}</h2>
                     <ul>
                         <li><span>1.南华科技公司</span>
                             <i>获得数量：</i><em>20</em>
@@ -62,7 +62,7 @@ class OrderResult extends React.Component {
                             <i>获得数量：</i><em>20</em>
                         </li>
                     </ul>
-                    <div className=""><span>我获得的数量：</span><i>15</i></div>
+                    <div className=""><span>我获得的数量：</span><i>{item.myOrderCount}</i></div>
                 </div>        
     });
 
@@ -72,17 +72,12 @@ class OrderResult extends React.Component {
           <div className="row common_finance common_orl_div">
               <h1>选单结果公布</h1>
               <a className="common_close_00"></a>
-              <ul class="label">
-                <li class="common_label_selected">本地市场</li>
-                <li>区域市场</li>
-                <li>亚洲市场</li>
-                <li>国际市场</li>
-              </ul>
+              <RadioButton tabs = {tabs} msg="one"/>
               <div className="common_content ">
                   <div className="common_label_content" id="sc" style={{width: size*itemSize}}> 
                     {dqNodes} 
                   </div>
-              <div>
+              </div>
           </div>
         </div>
     );
