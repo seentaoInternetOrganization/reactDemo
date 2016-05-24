@@ -149,6 +149,24 @@ app.get('/api/getMarketROrder', function(req, res, next){
     });
 });
 
+// 报表
+app.get('/api/getReport', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getReport';
+
+    request.get(apiUrl, function(err, response, body){
+        if (err) {
+            return next(err);
+        }
+
+        var result = JSON.parse(body);
+        res.send(result.rSysOrders);
+        return;
+
+    });
+});
+
+
+
 const apiUrl = 'http://125.35.5.37:8081/seentao/';
 require('request').debug = true;
 
