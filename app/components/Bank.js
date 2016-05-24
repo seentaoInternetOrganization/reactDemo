@@ -43,8 +43,8 @@ class Bank extends React.Component {
 
     return (
       <div className="index_01">
-          <img onClick={this.handleClick.bind(this)} src={'../images/dql_dianjitouzi_2.png'}/>
-          <img onClick={this.asyncDemoClick.bind(this)} src={'../images/dql_dianjitouzi_1.png'}/>
+          <img onClick={this.handleClick.bind(this)} src={'../images/zzrz_02.png'}/>
+          <img onClick={this.asyncDemoClick.bind(this)} src={'../images/zzrz_03.png'}/>
           {loanNodes}
       </div>
     );

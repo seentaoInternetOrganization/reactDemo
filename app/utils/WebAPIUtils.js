@@ -38,6 +38,4 @@ function stepThreeRequest(dataFromStep2, callback) {
     });
 }
 
-export default stepOneRequest;
-export default stepTwoRequest;
-export default stepThreeRequest;
+export default { stepOneRequest, stepTwoRequest, stepThreeRequest };
