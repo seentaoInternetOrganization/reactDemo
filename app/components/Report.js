@@ -1,7 +1,8 @@
 import React from 'react';
 import ReportActions from '../actions/ReportActions'
 import ReportStore from '../stores/ReportStore'
-
+import PubSub from 'pubsub-js'
+import RadioButton from './RadioButton';
 
 class Report extends React.Component {
     constructor(props) {
@@ -11,10 +12,9 @@ class Report extends React.Component {
     }
 
     componentDidMount() {
-        ReportActions.getRSysOrders();
-        console.log("请求原料市场接口");
-
         ReportStore.listen(this.onChange);
+        ReportActions.getReport("/api/getReport");
+        console.log("请求报表接口");
     }
 
     componentWillUnmount() {
@@ -23,78 +23,85 @@ class Report extends React.Component {
 
     onChange(state) {
         this.setState(state);
-        this.gys1Click();
-    }
-    handleClick() {
-        
-        console.log("Click Here");
     }
 
-    gys1Click() {
-        console.log("gys1");
-        $("#gys1 i").hide();
-        $("#gys2 i").show();
-        $("#gys3 i").show();
-    }
+render() {
+    //4个标签
+    var tabs = [{clickable:true, name:"利润表"},{clickable:false, name:"费用表"},{clickable:false, name:"资产负债表"},{clickable:false, name:"销售统计表"}];
+    //日期
+    var date = this.state.reportDetail.reportYear;
+    //利润表数据
+    var profitReport = this.state.reportDetail.profitReport;
+    //费用表数据
+    var costReport = this.state.reportDetail.costReport;
+    //资产负债表数据
+    var balanceSheet = this.state.reportDetail.balanceSheet;
+    //销售统计表数据
+    var saleReport = this.state.reportDetail.saleReport;
 
-    gys2Click() {
-        console.log("gys2");
-        $("#gys1 i").show();
-        $("#gys2 i").hide();
-        $("#gys3 i").show();
-    }
 
-    gys3Click() {
-        console.log("gys3");
-        $("#gys1 i").show();
-        $("#gys2 i").show();
-        $("#gys3 i").hide();
-    }
-
-    render() {
-        var itemSize = 272;
-        // var size = this.state.rSysOrders.length;
-        var reportNodes = this.state.rSysOrders.map((reportItem, index) => {
-            return <div key = {reportItem.rSysId} className = "index_03_00" id="report">
-                <h1>{reportItem.rName}</h1>
-                <ul>
-                    <li>
-                        <span>单价 :</span><i>{reportItem.rPerFee+"万"}</i>
-                    </li>
-                    <li>
-                        <span>到货 :</span><i>{reportItem.arrivalDays+"天"}</i>
-                    </li>
-                    <li>
-                        <span>供应量 :</span><i>{reportItem.rTotalCount}</i>
-                    </li>
-                    <li>
-                        <span>质保期 :</span><i>{reportItem.storageDays+"天"}</i>
-                    </li>
-                    <li>
-                        <span>应付期 :</span><i>{reportItem.payableDays+"天"}</i>
-                    </li>
-                </ul>
-
-            </div>
-        });
-        return(
-            <div className="index_00">
-                <div className="index_01">
-                    <div className="index_01_00">
-                        <div className="index_01_06" id="gys1" onClick={this.gys1Click.bind(this)}><i></i></div>
-                        <div className="index_01_07" id="gys2" onClick={this.gys2Click.bind(this)}><i></i></div>
-                        <div className="index_01_08" id="gys3" onClick={this.gys3Click.bind(this)}><i></i></div>
+    return <div className="row common_finance">
+            <h1>财务报表</h1>
+            <a className="common_close_00"></a>
+            <RadioButton tabs = {tabs} />  
+            <div className="common_content common_finance_content">
+                <h2>
+                报表年度 :{"第"+date+"年"}
+                </h2>
+            
+                <div className="finance_table">
+                    <div className="finance_table_tr">
+                        <div className="finance_table_td_00">项目</div>
+                        <div className="finance_table_td_01">本年发生</div>
+                        <div className="finance_table_td_00">项目</div>
+                        <div className="finance_table_td_01">本年发生</div>
                     </div>
-                    <div className="index_03" id="mro">
-                        <div className="index_04" style={{width: itemSize}}>
-                            {reportNodes}
-                        </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">销售收入</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">支付利息前利润</div>
+                        <div className="finance_table_td_01"></div>
+                    </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">直接成本</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">账务费用</div>
+                        <div className="finance_table_td_01"></div>
+                    </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">毛利</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">营业外收支</div>
+                        <div className="finance_table_td_01"></div>
+                    </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">综合管理费用</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">税前利润</div>
+                        <div className="finance_table_td_01"></div>
+                    </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">折旧前利润</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">所得税</div>
+                        <div className="finance_table_td_01"></div>
+                    </div>
+                    <div className="finance_table_tr finance_table_tr_00">
+                        <div className="finance_table_td_00">折旧</div>
+                        <div className="finance_table_td_01"></div>
+                        <div className="finance_table_td_00">净利润</div>
+                        <div className="finance_table_td_01"></div>
                     </div>
                 </div>
-               
+                  <div className="common_finance_button">
+                    <button type="button" className="btn common_label_content_01">保存报表</button>
+                    <button type="button" className="btn">提交报表</button>
+                  </div>
             </div>
-        );
-    }
+            </div>
+
+}
+
 }
 
 export default Report;

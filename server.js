@@ -39,17 +39,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
+// 获取银行贷款套餐
 app.get('/getBankLoans', function(req, res, next){
     var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getBankLoans';
+    //加上超时参数
+    request.get(apiUrl, {timeout: 1500}, function(err, response, body){
+        console.log('err  = ' + err);
 
-    request.get(apiUrl, function(err, response, body){
         if (err) {
             return next(err); 
         }
 
-        var result = JSON.parse(body);
-        res.send(result.loans);
+        res.send(body);
         return;
 
     });
@@ -149,13 +150,31 @@ app.get('/api/getMarketROrder', function(req, res, next){
     });
 });
 
-const apiUrl = 'http://125.35.5.37:8081/seentao/';
+// 报表
+app.get('/api/getReport', function(req, res, next){
+    var apiUrl = 'http://125.35.5.37:8081/seentao/spring/getReport';
+
+    request.get(apiUrl, function(err, response, body){
+        if (err) {
+            return next(err);
+        }
+
+        var result = JSON.parse(body);
+        res.send(result);
+        return;
+
+    });
+});
+
+
+
+const apiUrl = 'http://125.35.5.37:8081/seentao/spring/';
 require('request').debug = true;
+// 代理 /api/:action 类POST请求, action 为api动作名称
+app.post('/api/:action', function(req, res, next) {
+    console.log('req.action = ' + req.params.action);
 
-app.post('/*', function(req, res, next) {
-    console.log("req = " + req.params[0]);  //eg: getBankLoans, for concat url
-
-    request.post({url: apiUrl, form: req.body}, function(err, response, body){
+    request.post({url: apiUrl + req.params.action, form: req.body}, function(err, response, body){
         if (err) {
             return next(err);
         }
