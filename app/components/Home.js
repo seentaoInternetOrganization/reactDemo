@@ -37,6 +37,7 @@ class Home extends React.Component {
           <Link to='/mro' >原料市场</Link>
           <Link to='/orderResult' >选单结果</Link>
           <Link to='/report' > TEST DEMO </Link>
+          <Link to='/offoce' > 总经理办公室 </Link>
       </div>
     );
   }
