@@ -160,7 +160,7 @@ app.get('/api/getReport', function(req, res, next){
         }
 
         var result = JSON.parse(body);
-        res.send(result.rSysOrders);
+        res.send(result);
         return;
 
     });
