@@ -11,6 +11,7 @@ import Report from './components/Report';
 
 
 export default (
+	<Route component={App}>
       <Route path='/' component={Home} />
       <Route path='/oem' component={Oem} />
       <Route path='/dq' component={DQ} />
@@ -18,6 +19,5 @@ export default (
       <Route path='/bank' component={Bank} />
       <Route path='/orderResult' component={OrderResult} />
       <Route path='/report' component={Report} />
-
-  </Route>
+  	</Route>
 );
