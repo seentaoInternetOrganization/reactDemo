@@ -1,6 +1,5 @@
 import React from 'react';
 import PubSub from 'pubsub-js';
-
 class RadioButton extends React.Component {
 	constructor(props) {
     super(props);
@@ -20,9 +19,12 @@ class RadioButton extends React.Component {
     this.setState(state);
   }
   handleClick(index) {
-    this.setState({selectedIndex: index});
-    //发送反馈
-    PubSub.publish(this.props.msg, index);
+    if(this.state.selectedIndex != index){
+      this.setState({selectedIndex: index});
+      //发送反馈
+      PubSub.publish(this.props.msg, index);
+    }
+    
   } 
   render() {
 
