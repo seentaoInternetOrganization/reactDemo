@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>商战game</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css.css" rel="stylesheet">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+    
+        <div class="row common_top">
+            <div class="column common_user">
+                <div class="common_photo"><img src="images/tx.png"></div>
+                <div class="common_position">总经理</div>
+            </div>
+            <div class="column common_date">第1年-02月-18日</div>
+            <div class="column common_capital">400,000,000</div>
+        </div>
+        
+        <div class="row common_finance">
+            <h1>财务报表</h1>
+            <a class="common_close_00"></a>
+            <ul class="label">
+                <li class="common_label_selected">利润表</li>
+                <li>费用表</li>
+                <li>资产负责表</li>
+                <li>销售统计表</li>
+            </ul>
+            <div class="common_content common_finance_content">
+                <h2>报表年度：第XX年</h2>
+                <!--利润表内容-->
+                <div class="finance_table" style="display:none;">
+                    <div class="finance_table_tr">
+                        <div class="finance_table_td_00">项目</div>
+                        <div class="finance_table_td_01">本年发生</div>
+                        <div class="finance_table_td_00">项目</div>
+                        <div class="finance_table_td_01">本年发生</div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">销售收入</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">支付利息前利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">直接成本</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">账务费用</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">毛利</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">营业外收支</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">综合管理费用</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">税前利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">折旧前利润</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">所得税</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">折旧</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">净利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                </div>
+                <!--费用表内容-->
+                <div class="finance_table"  style="display:none;">
+                    <div class="finance_table_tr">
+                        <div class="finance_table_td_00">项目</div>
+                        <div class="finance_table_td_01">本年发生</div>
+                        <div class="finance_table_td_00">项目</div>
+                        <div class="finance_table_td_01">本年发生</div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">销售收入</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">支付利息前利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">直接成本</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">账务费用</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">毛利</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">营业外收支</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">综合管理费用</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">税前利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">折旧前利润</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">所得税</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">折旧</div>
+                        <div class="finance_table_td_01"></div>
+                        <div class="finance_table_td_00">净利润</div>
+                        <div class="finance_table_td_01"></div>
+                    </div>
+                </div>
+                <!--资产负责表内容-->
+                <div class="finance_table" >
+                    <div class="finance_table_tr">
+                        <div class="finance_table_td_03">表项</div>
+                        <div class="finance_table_td_03">年初数</div>
+                        <div class="finance_table_td_03">期末数</div>
+                        <div class="finance_table_td_03">表项</div>
+                        <div class="finance_table_td_03">年初数</div>
+                        <div class="finance_table_td_03">年末数</div>
+                    </div>
+                    <div class="finance_table_assets">
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                        <div class="finance_table_tr finance_table_tr_00">
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                            <div class="finance_table_td_03"></div>
+                        </div>
+                    </div>  
+                </div>
+                <!--销售统计表内容-->
+                <div class="finance_table finance_table_sale" style="display:none;">
+                    <div class="finance_table_tr">
+                        <div class="finance_table_td_00">表项</div>
+                        <div class="finance_table_td_02">P1产品</div>
+                        <div class="finance_table_td_02">P2产品</div>
+                        <div class="finance_table_td_02">P3产品</div>
+                        <div class="finance_table_td_02">P4产品</div>
+                        <div class="finance_table_td_02">P5产品</div>
+                        <div class="finance_table_td_02">总计</div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">数量</div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">收入</div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">成本</div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                    </div>
+                    <div class="finance_table_tr finance_table_tr_00">
+                        <div class="finance_table_td_00">毛利</div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                        <div class="finance_table_td_02"></div>
+                    </div>
+                </div>
+                
+                <div class="common_finance_button">
+                    <button type="button" class="btn common_label_content_01">保存报表</button>
+                    <button type="button" class="btn">提交报表</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="common_background"></div>
+        
+    </div>
+ 
+</body>
+</html>
