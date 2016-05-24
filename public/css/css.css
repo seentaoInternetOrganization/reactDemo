@@ -13,18 +13,49 @@ i , em {font-style: normal;}
 .common_position{width: 211px; height: 101px; position:relative;background: url(../images/zzrz_01.png);margin: -89px 0px 0px 0px;  padding: 0px 0px 0px 98px;text-align: center;line-height:52px;}
 .common_date {width: 192px; height: 53px; background: url(../images/zzrz_02.png);float: left; margin: 5px 0px 0px 260px;line-height: 53px; text-align: center;font-size: 18px;}
 .common_capital {width: 165px; height: 49px; background: url(../images/zzrz_03.png);float: left;margin: 5px 0px 0px 210px; padding-left: 46px; font-size: 18px;line-height: 52px;}
-.common_authentication {width: 1126px; height: 529px;background: url(../images/zzrz_06.png);position: absolute;z-index: 3;left: 50%; margin: 106px -562px;padding:15px 18px 0px;}
+.common_authentication ,.common_menu{width: 1126px; height: 529px;background: url(../images/zzrz_06.png);position: absolute;z-index: 3;left: 50%; margin: 106px -562px;padding:15px 18px 0px;}
 .label {width: 100%; height: 40px;float: left;margin: 0px auto;display: block;position: relative;z-index: 1;}
 .label li {display: block;width: 161px; height: 37px;background: url(../images/zzrz_05b.png);float: left;line-height: 38px;font-size: 18px; color:#413316;margin: 0px 5px; cursor: pointer;}
 .common_label_selected {background: url(../images/zzrz_05a.png)!important;}
 .common_label_disable {}
-.common_content {width: 1088px; height: 456px;float: left;background: #dcceb6 ;border: 1px solid #5e5438; border-radius:5px;margin: -2px 0px 0px 2px;overflow: auto;}
+.common_content {width: 1088px; height: 456px;float: left;background: #dcceb6 ;border: 1px solid #5e5438; border-radius:5px;margin: -2px 0px 0px 2px;overflow: auto;overflow-y: hidden;}
 .common_label_content {height:452px;padding-left: 3px;}
 .common_label_content_00 {width: 264px; height: 446px; padding-left:10px; background: #f2ebe0 ;border: 2px solid #847856;float: left;border-radius: 5px;margin: 3px ; padding: 35px ;}
 .common_label_content_00 h1 {width: 100%; height:34px; float: left; display: block; font-size: 28px;text-align: center;line-height: 34px;margin: 0px;}
 .common_label_content_00 ul {width: 100%; height: auto; display:block; font-size: 24px;margin-top: 46px;float: left;}
 .common_label_content_00 ul li {margin-bottom: 20px;}
-.common_label_content_00 button {width: 185px; height: 52px; border: 0px; margin: 38px auto 0px;background: url(../images/zzrz_07a.png);font-size: 20px; text-align: center;  line-height:40px; color: #FFF;text-shadow: 0px 0px 8px #000 ;}
-.common_label_content_00 button:hover {color: #FFF;}
+.common_label_content_00 button , .btn {width: 185px; height: 52px; border: 0px; margin: 38px auto 0px;background: url(../images/zzrz_07a.png);font-size: 20px; text-align: center;  line-height:40px; color: #FFF;text-shadow: 0px 0px 8px #000 ;}
+.common_label_content_00 button:hover ,  .btn:hover {color: #FFF;}
 .common_label_content_01 {background: url(../images/zzrz_07b.png)!important;}
-.common_close {display: block;width: 54px; height: 54px; position:fixed;background:url(../images/zzrz_04.png);z-index: 2;top: 6px;left: 1150px; cursor: pointer;}
+.common_close {display: block;width: 54px; height: 54px; position:absolute;background:url(../images/zzrz_04.png);z-index: 2;cursor: pointer; margin: -113px 0px 0px 1050px;}
+.common_close_00 {width:37px; height:37px; background: url(../images/cwbb_01.png);display: block;float: left;position: relative;margin: -59px 0px 0px 764px; cursor: pointer;}
+.common_finance {width:840px; height:531px; background: url(../images/cwbb_00.png);margin: 60px -420px 0px; left: 50%;position: fixed;z-index:3;padding: 0px 22px;}
+.common_finance h1 {width: 100%; height: 46px; float: left;text-align: center;font-size: 24px; color:#f6ffdb;line-height:30px;}
+.common_background {background: #000; width: 100%; height: 100%;position: fixed;z-index: 2; opacity:0.5;top: 0px; left: 0px;}
+.common_finance_content {width: 795px; height: 394px;  }
+.common_finance_content h2 {width: 100%; height: 50px; float: left;background: url(../images/cwbb_02.png)no-repeat 0px bottom;font-size: 18px;padding-left: 26px;line-height: 50px;margin: 0px; color: #837861 ;}
+.finance_table {width: 756px; height: 237px;border: 1px solid #837861; margin: 18px 20px;float: left;overflow: hidden; border-bottom: 0px; color:#362d17;}
+.finance_table_assets {width: 100%; height:192px;float: left; overflow-y: auto;overflow-x: hidden;border-bottom: 1px solid #837861; }
+.finance_table_tr {width: 800px; height: 44px; border-bottom: 1px solid #837861;float: left;}
+.finance_table_tr div {height:44px; border-right: 1px solid #837861;float: left;text-align: center;line-height: 44px; font-size: 22px;}
+.finance_table_tr_00 {height: 32px;}
+.finance_table_tr_00 div {height: 32px; line-height: 32px; font-size: 16px;}
+.finance_table_td_00 {width:142px;}
+.finance_table_td_01 {width:236px;}
+.finance_table_td_02 {width:103px;}
+.finance_table_td_03 {width:126px;}
+.finance_table_sale {height:173px;}
+.common_finance_button {width: 100%; height: 52px; margin:0px auto 0px; float: left; padding-left: 20px;}
+.common_finance_button button {float: left; margin: 0px 88px;}
+.common_orl_div {width: 1128px; height: 590px; background: url(../images/xdjg_00.png)!important;margin: 27px 0px 0px -564px;}
+.common_orl_div .common_close_00 {margin:-58px 0px 0px 1052px; }
+.common_orl_table { padding: 0px 15px;}
+.common_orl_table h2{width: 100%; height: 26px; display: block; font-size: 26px;margin:40px auto 0px;float: left;}
+.common_orl_table ul {width: 100%; height: 250px; font-size: 22px;float: left; overflow: auto; overflow-x: hidden; margin-top: 30px;}
+.common_orl_table li {width: 100%; height: auto; float: left;display: block;}
+.common_orl_table li span {width: 100%; height: auto; float: left;}
+.common_orl_table li i {float: left; margin-left: 18px;}
+.common_orl_table li em {float: right; margin-right: 20px;}
+.common_orl_table div {width: 100%; height: 46px; background: url(../images/xdjg_01.png)no-repeat 0px top;font-size: 20px; float: left;padding-top: 20px; margin-top: 20px;}
+.common_orl_table div span {float: left;}
+.common_orl_table div i {float: right;}
