@@ -1,9 +1,9 @@
 import alt from '../alt';
-import DQActions from '../actions/DQActions';
+import DevQuanlityActions from '../actions/DevQuanlityActions';
 
-class DQStore {
+class DevQuanlityStore {
   constructor() {
-    this.bindActions(DQActions);
+    this.bindActions(DevQuanlityActions);
     this.certificates = [];
     this.code = -1;
   }
@@ -27,4 +27,4 @@ class DQStore {
   }
 }
 
-export default alt.createStore(DQStore);
+export default alt.createStore(DevQuanlityStore);

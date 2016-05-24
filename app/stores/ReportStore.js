@@ -4,16 +4,16 @@ import ReportActions from '../actions/ReportActions';
 class ReportStore {
     constructor() {
         this.bindActions(ReportActions);
-        this.rSysOrders = [];
+        this.reportDetail =[] ;
 
     }
 
-    onGetRSysOrdersSuccess(data) {
+    onGetReportSuccess(data) {
         console.log(data);
-        this.rSysOrders = data;
+        this.reportDetail = data;
     }
 
-    onGetRSysOrdersFail(errorMessage) {
+    onGetReportFail(errorMessage) {
         toastr.error(errorMessage);
     }
 

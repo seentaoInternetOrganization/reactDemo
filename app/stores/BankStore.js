@@ -8,10 +8,12 @@ class BankStore {
   }
 
   onGetLoansOfAllBankSuccess(data) {
-    this.loans = data;
+      var result = JSON.parse(data);
+      this.loans = result.loans;
   }
 
   onGetLoansOfAllBankFailed(errorMessage) {
+    console.log('errorMessage = ' + typeof errorMessage);
     toastr.error(errorMessage);
   }
 }

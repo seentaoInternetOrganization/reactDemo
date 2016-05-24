@@ -3,23 +3,23 @@ import alt from '../alt';
 class ReportActions {
     constructor() {
         this.generateActions(
-            'getRSysOrdersSuccess',
-            'getRSysOrdersFail'
-
-
+            'getReportSuccess',
+            'getReportFail'
         );
     }
 
-    getRSysOrders() {
-        $.ajax({ url: '/api/getMarketROrder' })
-            .done(data => {
-                this.actions.getRSysOrdersSuccess(data);
-            })
-            .fail(jqXhr => {
-                this.actions.getRSysOrdersFail(jqXhr.responseJSON.message);
-            });
-    }
-
+  getReport(api) {
+    console.log(api);
+    $.ajax({
+      url: api
+    })
+      .done((data) => {
+        this.actions.getReportSuccess(data);
+      })
+      .fail((jqXhr) => {
+        this.actions.getReportFail(jqXhr);
+      });
+  }
 }
 
 export default alt.createActions(ReportActions);
