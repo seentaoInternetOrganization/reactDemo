@@ -6,7 +6,7 @@ import TipsDialog from './TipsDialog';
 import RadioButton from './RadioButton';
 import PubSub from 'pubsub-js';
 
-var token;
+var token1, token2;
 class Oem extends React.Component {
 	constructor(props) {
     super(props);
@@ -18,12 +18,15 @@ class Oem extends React.Component {
     OemStore.listen(this.onChange);
     OemActions.getOEMFactories();
     console.log("生命周期方法");
-    token =  PubSub.subscribe( 'radio_index', this.dealIndex );
+    token1 =  PubSub.subscribe( 'one', this.dealIndex );
+    token2 =  PubSub.subscribe( 'two', this.dealIndex );
   }
 
   componentWillUnmount() {
     OemStore.unlisten(this.onChange);
-    PubSub.unsubscribe( token );
+    PubSub.unsubscribe( token1 );
+    PubSub.unsubscribe( token2 );
+
   }
 
   onChange(state) {
@@ -41,16 +44,20 @@ class Oem extends React.Component {
   }
   dealIndex(msg, index){
     //根据返回处理本组件动作
-    console.log(index);
+    console.log(msg,index);
   }
   render() {
     
     var tabs = [{clickable:true, name:"标签1"},{clickable:false, name:"标签2"}];
+    var tabs1 = [{clickable:true, name:"标签3"},{clickable:false, name:"标签4"}];
+
     
     return (
             
                   <div className="row authentication">
-                    <RadioButton tabs = {tabs}/>
+                    <RadioButton tabs = {tabs} msg="one"/>
+                    <RadioButton tabs = {tabs1} msg="two"/>
+
                   </div>
     );
   }

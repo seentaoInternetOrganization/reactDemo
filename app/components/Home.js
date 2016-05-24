@@ -36,6 +36,7 @@ class Home extends React.Component {
           <Link to='/dq' ><br/><img src={'../images/ol_zizhikaifa_n.png'}/></Link>
           <Link to='/mro' >原料市场</Link>
           <Link to='/orderResult' >选单结果</Link>
+          <Link to='/report' > TEST DEMO </Link>
       </div>
     );
   }
