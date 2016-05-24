@@ -23,8 +23,12 @@ class Bank extends React.Component {
     this.setState(state);
   }
 
-   handleClick() {
+  handleClick() {
       BankActions.getLoansOfAllBank();
+  }
+
+  asyncDemoClick() {
+      BankActions.asyncDemoFunction();
   }
 
   render() {
@@ -39,7 +43,8 @@ class Bank extends React.Component {
 
     return (
       <div className="index_01">
-          <img onClick={this.handleClick.bind(this)} src={'../images/OEML_xiadan_n.png'}/>
+          <img onClick={this.handleClick.bind(this)} src={'../images/zzrz_02.png'}/>
+          <img onClick={this.asyncDemoClick.bind(this)} src={'../images/zzrz_03.png'}/>
           {loanNodes}
       </div>
     );

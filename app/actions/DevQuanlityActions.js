@@ -1,6 +1,6 @@
 import alt from '../alt';
 
-class DQActions {
+class DevQuanlityActions {
   constructor() {
     this.generateActions(
       'getCertificatesSuccess',
@@ -31,4 +31,4 @@ class DQActions {
   }
 }
 
-export default alt.createActions(DQActions);
+export default alt.createActions(DevQuanlityActions);

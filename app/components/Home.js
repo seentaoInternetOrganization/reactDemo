@@ -33,7 +33,7 @@ class Home extends React.Component {
     return (
       <div className="index_01">
           <Link to='/oem' >进入代工厂</Link>
-          <Link to='/dq' ><br/><img src={'../images/ol_zizhikaifa_n.png'}/></Link>
+          <Link to='/devQuanlity' ><br/><img src={'../images/ol_zizhikaifa_n.png'}/></Link>
           <Link to='/mro' >原料市场</Link>
           <Link to='/orderResult' >选单结果</Link>
           <Link to='/report' > TEST DEMO </Link>
