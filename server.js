@@ -124,12 +124,13 @@ const apiUrl = 'http://125.35.5.37:8081/seentao/';
 require('request').debug = true;
 
 app.post('/*', function(req, res, next) {
+    console.log("req = " + req.params[0]);  //eg: getBankLoans, for concat url
 
     request.post({url: apiUrl, form: req.body}, function(err, response, body){
         if (err) {
             return next(err);
         }
-        
+
         res.send(body);
         return;
     });
