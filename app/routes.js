@@ -9,6 +9,7 @@ import Bank from './components/Bank';
 import OrderResult from './components/OrderResult';
 import Report from './components/Report';
 import Office from './components/Office'
+import SelectMode from './components/SelectMode';
 
 
 export default (
@@ -21,5 +22,6 @@ export default (
       <Route path='/orderResult' component={OrderResult} />
       <Route path='/report' component={Report} />
       <Route path='/office' component={Office} />
+      <Route path='/SelectMode' component={SelectMode} />
   </Route>
 );
