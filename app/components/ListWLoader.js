@@ -11,16 +11,14 @@ class ListWLoader extends React.Component {
 
   componentDidMount() {
   }
-
+  
   componentWillUnmount() {
   }
 
   onChange(state) {
     this.setState(state);
   }
-  onWheel(){
-    console.log(deltaY);
-  }
+  
   handleClick() {  
     this.state.data.push("添加 dfsg s dfg 啊");
     this.setState({data: this.state.data});
@@ -39,7 +37,7 @@ class ListWLoader extends React.Component {
     <div id = "divid" style={{width:200, height:200,overflow:"auto"}}>
     {listData}
     <br></br>
-    <button onClick = {this.handleClick.bind(this)}>正在加载</button>
+    <button onClick = {this.handleClick.bind(this)}>加载更多</button>
     </div>
     );
   }
