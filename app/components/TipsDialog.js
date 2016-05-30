@@ -35,7 +35,7 @@ class TipsDialog extends React.Component {
   }
   render() {
     return (
-    <div className="xdtc_01" style={{display: this.state.ensureDisplay}}>
+    <div className="xdtc_01" style={{display: this.props.display}}>
         <div className="xdtc_01_00">
             <span>通知</span>
             <a id="gb" onClick={this.handleClick.bind(this)}></a>
