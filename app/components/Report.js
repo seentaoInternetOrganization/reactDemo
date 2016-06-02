@@ -39,6 +39,14 @@ render() {
     //销售统计表数据
     var saleReport = this.state.reportDetail.saleReport;
 
+    if (typeof profitReport === 'string') {
+        console.log('profitReport = ' + profitReport);
+        let profitReportData = profitReport.split(",");
+        console.log('array data = ' + profitReportData[0]);
+    }
+    // console.log('profitReport = ' + profitReport.split(','));
+    // console.log("");
+
 
     return <div className="row common_finance">
             <h1>财务报表</h1>
