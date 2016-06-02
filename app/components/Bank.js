@@ -32,6 +32,7 @@ class Bank extends React.Component {
   }
 
   render() {
+    
     var loanNodes = this.state.loans.map((loanItem, index) => {
         return <div key = {loanItem.loanId} className = 'index_03_00'>
                   <div>{loanItem.loanName}</div>

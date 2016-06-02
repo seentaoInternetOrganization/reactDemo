@@ -4,6 +4,7 @@ import OemActions from '../actions/OemActions';
 import SubmitDialog from './SubmitDialog';
 import TipsDialog from './TipsDialog';
 import RadioButton from './RadioButton';
+import ListWLoader from './ListWLoader';
 import PubSub from 'pubsub-js';
 
 var token1, token2;
@@ -57,7 +58,7 @@ class Oem extends React.Component {
                   <div className="row authentication">
                     <RadioButton tabs = {tabs} msg="one"/>
                     <RadioButton tabs = {tabs1} msg="two"/>
-
+                    <ListWLoader />
                   </div>
     );
   }

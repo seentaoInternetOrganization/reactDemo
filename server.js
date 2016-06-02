@@ -193,6 +193,7 @@ app.use(function(req, res) {
     } else if (renderProps) {
         var html = ReactDOM.renderToString(React.createElement(Router.RoutingContext, renderProps));
         var page = swig.renderFile('views/index.html', { html: html });
+        // res.sendFile(__dirname + '/views/index.html');
         res.status(200).send(page);
     } else {
       res.status(404).send('Page Not Found')
@@ -210,19 +211,19 @@ app.use(function(err, req, res, next) {
  * Socket.io stuff.
  */
 var server = require('http').createServer(app);
-// var io = require('socket.io')(server);
-// var onlineUsers = 0;
+var io = require('socket.io')(server);
+var onlineUsers = 0;
 
-// io.sockets.on('connection', function(socket) {
-//   onlineUsers++;
+io.sockets.on('connection', function(socket) {
+  onlineUsers++;
 
-//   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
 
-//   socket.on('disconnect', function() {
-//     onlineUsers--;
-//     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//   });
-// });
+  socket.on('disconnect', function() {
+    onlineUsers--;
+    io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  });
+});
 
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
